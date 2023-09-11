@@ -81,6 +81,15 @@ console.log(resultRound);
 
 let playerScore = 0;
 let computerScore = 0;
+let highestScore = 0;
+
+function getHighestScore() {
+    if (computerScore >= playerScore) {
+        highestScore = computerScore
+    } else {
+        highestScore = playerScore
+    }
+}
 
 function increaseScore() {
     if (resultRound === "Won") {
@@ -91,5 +100,7 @@ function increaseScore() {
     }
 
 increaseScore();
+getHighestScore();
 
 console.log("SCORE - Player: " + playerScore + " Computer: " + computerScore);
+console.log("Highest score is: " + highestScore);
