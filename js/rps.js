@@ -38,33 +38,39 @@ console.log(playerInput);
 
 function playRound(playerSelection,computerSelection) {
     if (playerSelection === computerSelection) {
-        let resultContest = "Ooops, it's a Tie... Try again!";
-        return resultContest;
+        console.log("Ooops, it's a Tie... Try again!");
+        // return resultContest;
         }
         else if (playerSelection === "rock") {
         if (computerSelection === "scissors") {
-            let resultContest = "You Win! Rock beats Scissors!";
+            console.log("You Win! Rock beats Scissors!");
+            let resultContest = "Won";
             return resultContest;
         } else {
-            let resultContest = "You Lose! Paper beats Rock!";
+            console.log("You Lose! Paper beats Rock!");
+            let resultContest = "Lost";
             return resultContest;
         }
         }
         else if (playerSelection === "paper") {
             if (computerSelection === "scissors") {
-                let resultContest = "You Lose! Scissors beats Paper!";
+                console.log("You Lose! Scissors beats Paper!");
+                let resultContest = "Lost";
                 return resultContest;
             } else {
-                let resultContest = "You Win! Paper beats Rock!";
+                console.log("You Win! Paper beats Rock!");
+                let resultContest = "Won";
                 return resultContest;
             }
             }
             else if (playerSelection === "scissors") {
                 if (computerSelection === "rock") {
-                    let resultContest = "You Lose! Rock beats Scissors!";
+                    console.log("You Lose! Rock beats Scissors!");
+                    let resultContest = "Lost";
                     return resultContest;
                 } else {
-                    let resultContest = "You Win! Scissors beats Paper!";
+                    console.log("You Win! Scissors beats Paper!");
+                    let resultContest = "Won";
                     return resultContest;
                 }
                 }
@@ -72,3 +78,18 @@ function playRound(playerSelection,computerSelection) {
 
 let resultRound = playRound(playerInput,computerChoice);
 console.log(resultRound);
+
+let playerScore = 0;
+let computerScore = 0;
+
+function increaseScore() {
+    if (resultRound === "Won") {
+        playerScore++;
+    } else if (resultRound === "Lost") {
+        computerScore++;
+    }
+    }
+
+increaseScore();
+
+console.log("SCORE - Player: " + playerScore + " Computer: " + computerScore);
