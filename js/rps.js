@@ -30,38 +30,45 @@ function getPlayerChoice() {
 
 function playRound(playerSelection,computerSelection) {
     if (playerSelection === computerSelection) {
-        console.log("Ooops, it's a Tie... Try again!");
+        alert("Ooops, it's a tie... Try again! (This round doesn't count)");
+        console.log("Ooops, it's a tie... Try again! (This round doesn't count)");
         // return resultContest;
         }
         else if (playerSelection === "rock") {
         if (computerSelection === "scissors") {
-            console.log("You Win! Rock beats Scissors!");
+            alert("You Win this round! Rock beats Scissors!");
+            console.log("You Win this round! Rock beats Scissors!");
             let resultContest = "Won";
             return resultContest;
         } else {
-            console.log("You Lose! Paper beats Rock!");
+            alert("You Lose this round! Paper beats Rock!");
+            console.log("You Lose this round! Paper beats Rock!");
             let resultContest = "Lost";
             return resultContest;
         }
         }
         else if (playerSelection === "paper") {
             if (computerSelection === "scissors") {
-                console.log("You Lose! Scissors beats Paper!");
+                alert("You Lose this round! Scissors beats Paper!");
+                console.log("You Lose this round! Scissors beats Paper!");
                 let resultContest = "Lost";
                 return resultContest;
             } else {
-                console.log("You Win! Paper beats Rock!");
+                alert("You Win this round! Paper beats Rock!");
+                console.log("You Win this round! Paper beats Rock!");
                 let resultContest = "Won";
                 return resultContest;
             }
             }
             else if (playerSelection === "scissors") {
                 if (computerSelection === "rock") {
-                    console.log("You Lose! Rock beats Scissors!");
+                    alert("You Lose this round! Rock beats Scissors!");
+                    console.log("You Lose this round! Rock beats Scissors!");
                     let resultContest = "Lost";
                     return resultContest;
                 } else {
-                    console.log("You Win! Scissors beats Paper!");
+                    alert("You Win this round! Scissors beats Paper!");
+                    console.log("You Win this round! Scissors beats Paper!");
                     let resultContest = "Won";
                     return resultContest;
                 }
@@ -88,27 +95,33 @@ function getHighestScore() {
     }
 }
 
+function giveFinalResult() {
+    if (computerScore === 5) {
+        alert("Ouch! You've been beaten!")
+    } else {
+        alert("Well done! You won!")
+    }
+}
+
 function game() {
     alert("Let's play! The first to get to 5 wins!");
     while (highestScore<5) {
         
-        let randomInt = getRandomInt();
-        console.log(randomInt);
-        let computerChoice = getComputerChoice(randomInt);
-        console.log(computerChoice);
-        
         let playerInput = getPlayerChoice();
-        console.log(playerInput);
+        console.log("You chose: " + playerInput);
+
+        let randomInt = getRandomInt();
+        let computerChoice = getComputerChoice(randomInt);
+        console.log("The Computer chose: " + computerChoice);
         
         let resultRound = playRound(playerInput,computerChoice);
-        console.log(resultRound);
         
         increaseScore(resultRound);
-        console.log("SCORE - Player: " + playerScore + " Computer: " + computerScore);
+        console.log("SCORE - You: " + playerScore + " Computer: " + computerScore + "\n --------------------------");
         
         highestScore = getHighestScore();
-        console.log("The highest score is " +highestScore);
     }
+    giveFinalResult();
 }
 
 game();
