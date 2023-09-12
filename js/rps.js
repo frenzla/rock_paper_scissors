@@ -6,9 +6,6 @@ function getRandomInt(min = 1 , max = 3) {
     return Math.floor(Math.random() * (max-min+1) + min);
 }
 
-let randomInt = getRandomInt();
-console.log(randomInt);
-
 function getComputerChoice(numberForChoice) {
     switch (numberForChoice) {
         case 1:
@@ -24,17 +21,12 @@ function getComputerChoice(numberForChoice) {
             alert ("Houston, we have a problem!");
     }
 }
-let computerChoice = getComputerChoice(randomInt);
-console.log(computerChoice);
 
 function getPlayerChoice() {
     let getPlayerInput = prompt("Choose from Rock, Paper or Scissors!");
     let resultPlayerInput = getPlayerInput.toLowerCase();
     return resultPlayerInput;
 }
-
-let playerInput = getPlayerChoice();
-console.log(playerInput);
 
 function playRound(playerSelection,computerSelection) {
     if (playerSelection === computerSelection) {
@@ -76,29 +68,47 @@ function playRound(playerSelection,computerSelection) {
                 }
             }
 
-let resultRound = playRound(playerInput,computerChoice);
-console.log(resultRound);
-
 let playerScore = 0;
 let computerScore = 0;
 let highestScore = 0;
 
-function increaseScore() {
+function increaseScore(resultRound) {
     if (resultRound === "Won") {
-        playerScore++;
+        ++playerScore;
     } else if (resultRound === "Lost") {
-        computerScore++;
+        ++computerScore;
     }
     }
-
-increaseScore();
-
-console.log("SCORE - Player: " + playerScore + " Computer: " + computerScore);
 
 function getHighestScore() {
-    return (computerScore + playerScore);
+    if (computerScore>playerScore) {
+        return computerScore
+    } else {
+        return playerScore
+    }
 }
 
-highestScore = getHighestScore();
-console.log(highestScore);
+function game() {
+    alert("Let's play! The first to get to 5 wins!");
+    while (highestScore<5) {
+        
+        let randomInt = getRandomInt();
+        console.log(randomInt);
+        let computerChoice = getComputerChoice(randomInt);
+        console.log(computerChoice);
+        
+        let playerInput = getPlayerChoice();
+        console.log(playerInput);
+        
+        let resultRound = playRound(playerInput,computerChoice);
+        console.log(resultRound);
+        
+        increaseScore(resultRound);
+        console.log("SCORE - Player: " + playerScore + " Computer: " + computerScore);
+        
+        highestScore = getHighestScore();
+        console.log("The highest score is " +highestScore);
+    }
+}
 
+game();
