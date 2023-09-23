@@ -1,6 +1,6 @@
 //My javascript file
 
-
+/*
 
 function getRandomInt(min = 1 , max = 3) {
     return Math.floor(Math.random() * (max-min+1) + min);
@@ -102,7 +102,16 @@ function giveFinalResult() {
         alert("Well done! You won!")
     }
 }
+*/
+function logText(e) {
+    console.log(this.id);
+}
 
+const buttons = document.querySelectorAll('button');
+buttons.forEach(button => button.addEventListener('click', logText));
+
+
+/*
 function game() {
     alert("Let's play! The first to get to 5 wins!");
     while (highestScore<5) {
@@ -125,3 +134,4 @@ function game() {
 }
 
 game();
+*/
