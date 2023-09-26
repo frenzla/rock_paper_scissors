@@ -1,6 +1,6 @@
 //My javascript file
 
-/*
+console.log('Hello!');
 
 function getRandomInt(min = 1 , max = 3) {
     return Math.floor(Math.random() * (max-min+1) + min);
@@ -22,17 +22,40 @@ function getComputerChoice(numberForChoice) {
     }
 }
 
-function getPlayerChoice() {
-    let getPlayerInput = prompt("Choose from Rock, Paper or Scissors!");
-    let resultPlayerInput = getPlayerInput.toLowerCase();
-    return resultPlayerInput;
+alert("Let's play! The first to get to 5 wins!");
+
+let playerScore = 0;
+let computerScore = 0;
+let highestScore = 0;
+
+const buttons = document.querySelectorAll('.btn');
+buttons.forEach(button => button.addEventListener('click', play));
+
+function play (e) {
+        let playerInput = this.id;
+        console.log("You chose: " + playerInput);
+
+        let randomInt = getRandomInt();
+        let computerChoice = getComputerChoice(randomInt);
+        console.log("The Computer chose: " + computerChoice);
+
+        let resultRound = playRound(playerInput,computerChoice);
+
+        increaseScore(resultRound);
+        console.log("SCORE - You: " + playerScore + " Computer: " + computerScore + "\n --------------------------");
+            
+        highestScore = getHighestScore();
+        console.log(highestScore);
+    
+        if (highestScore === 5) {    
+        giveFinalResult();
+        };
 }
 
 function playRound(playerSelection,computerSelection) {
     if (playerSelection === computerSelection) {
         alert("Ooops, it's a tie... Try again! (This round doesn't count)");
         console.log("Ooops, it's a tie... Try again! (This round doesn't count)");
-        // return resultContest;
         }
         else if (playerSelection === "rock") {
         if (computerSelection === "scissors") {
@@ -75,10 +98,6 @@ function playRound(playerSelection,computerSelection) {
                 }
             }
 
-let playerScore = 0;
-let computerScore = 0;
-let highestScore = 0;
-
 function increaseScore(resultRound) {
     if (resultRound === "Won") {
         ++playerScore;
@@ -102,36 +121,3 @@ function giveFinalResult() {
         alert("Well done! You won!")
     }
 }
-*/
-function logText(e) {
-    console.log(this.id);
-}
-
-const buttons = document.querySelectorAll('button');
-buttons.forEach(button => button.addEventListener('click', logText));
-
-
-/*
-function game() {
-    alert("Let's play! The first to get to 5 wins!");
-    while (highestScore<5) {
-        
-        let playerInput = getPlayerChoice();
-        console.log("You chose: " + playerInput);
-
-        let randomInt = getRandomInt();
-        let computerChoice = getComputerChoice(randomInt);
-        console.log("The Computer chose: " + computerChoice);
-        
-        let resultRound = playRound(playerInput,computerChoice);
-        
-        increaseScore(resultRound);
-        console.log("SCORE - You: " + playerScore + " Computer: " + computerScore + "\n --------------------------");
-        
-        highestScore = getHighestScore();
-    }
-    giveFinalResult();
-}
-
-game();
-*/
