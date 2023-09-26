@@ -47,7 +47,8 @@ function play (e) {
         let resultRound = playRound(playerInput,computerChoice);
 
         increaseScore(resultRound);
-        console.log("SCORE - You: " + playerScore + " Computer: " + computerScore + "\n --------------------------");
+        showScore();
+//      console.log("SCORE - You: " + playerScore + " Computer: " + computerScore + "\n --------------------------");
             
         highestScore = getHighestScore();
         console.log(highestScore);
@@ -57,6 +58,22 @@ function play (e) {
         giveFinalResult();
         };
 }
+
+function showScore () {
+    const scoreDiv = document.getElementById('score');
+    scoreDiv.textContent = `SCORE - You: ${playerScore} Computer: ${computerScore}`;
+}
+
+/*
+function showScore () {
+    const checkDiv = document.getElementById('score');
+    if (checkDiv.childNodes.length === 0) {
+        console.log('Element is empty');
+    } else {
+        console.log(checkDiv.childNodes.length)
+    }
+}
+*/
 
 function logPlayerChoice(playerInput) {
     const contentPlayer = document.createElement('div');
@@ -98,27 +115,33 @@ function playRound(playerSelection,computerSelection) {
         if (computerSelection === "Scissors") {
             let resultContest = "Won";
             logRoundResult(resultContest);
+            return resultContest;
         } else {
             let resultContest = "Lost";
             logRoundResult(resultContest);
+            return resultContest;
         }
         }
         else if (playerSelection === "Paper") {
             if (computerSelection === "Scissors") {
                 let resultContest = "Lost";
                 logRoundResult(resultContest);
+                return resultContest;
             } else {
                 let resultContest = "Won";
                 logRoundResult(resultContest);
+                return resultContest;
             }
             }
             else if (playerSelection === "Scissors") {
                 if (computerSelection === "Rock") {
                     let resultContest = "Lost";
                     logRoundResult(resultContest);
+                    return resultContest;
                 } else {
                     let resultContest = "Won";
                     logRoundResult(resultContest);
+                    return resultContest;
                 }
                 }
             }

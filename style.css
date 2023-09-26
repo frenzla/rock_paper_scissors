@@ -11,9 +11,12 @@
     flex-wrap: wrap;
     margin: 40px auto;
     justify-content: space-around;
-    border: 3px solid blue;
 }
 
 .textContainer {
-    border: 3px solid red;
+}
+
+#score {
+    margin: 40px auto;
+    text-align: center;
 }
