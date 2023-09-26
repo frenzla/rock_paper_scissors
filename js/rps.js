@@ -29,7 +29,18 @@ let highestScore = 0;
 const buttons = document.querySelectorAll('.btn');
 buttons.forEach(button => button.addEventListener('click', play));
 
+function removeTransition(e) {
+    if (e.propertyName !== 'transform') return;
+    e.target.classList.remove('selected');
+  }
+
 function play (e) {
+        
+        const buttonPressed = document.querySelector(`#${this.id}`)
+        buttonPressed.classList.add('selected');
+        const btns = Array.from(document.querySelectorAll('.btn'));
+        btns.forEach(btn => btn.addEventListener('transitionend', removeTransition));
+
         // Player
         let playerInput = this.id;
         logPlayerChoice(playerInput);
@@ -61,17 +72,6 @@ function showScore () {
     const scoreDiv = document.getElementById('score');
     scoreDiv.textContent = `SCORE - You: ${playerScore} Computer: ${computerScore}`;
 }
-
-/*
-function showScore () {
-    const checkDiv = document.getElementById('score');
-    if (checkDiv.childNodes.length === 0) {
-        console.log('Element is empty');
-    } else {
-        console.log(checkDiv.childNodes.length)
-    }
-}
-*/
 
 function logPlayerChoice(playerInput) {
     const contentPlayer = document.createElement('div');

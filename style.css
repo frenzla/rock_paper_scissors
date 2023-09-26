@@ -1,9 +1,49 @@
 .buttons {
     display: flex;
     justify-content: space-between;
-    width: 300px;
+    width: 400px;
     margin: 0 auto;
-    border: 1px yellow solid;
+    border: 1px yellow solid;;
+}
+
+#Rock {
+    background-image: url("images/rock.jpg");
+}
+
+#Paper {
+    background-image: url("images/paper.jpg");
+}
+
+#Scissors {
+    background-image: url("images/scissors.jpg");
+}
+
+.btn {
+    background-size: 90px 90px;
+    width: 100px;
+    height: 100px;
+    margin:0;
+    padding:0;
+    border: solid 1px red;
+    background-color: inherit;
+    appearance: none;
+    cursor: pointer;
+    border: .4rem solid orange;
+    opacity: 0.5;
+    border-radius: 10px;
+    transition: all .07s ease;
+}
+
+.selected {
+    transform: scale(1.03);
+    border-radius: 10px;
+    border-color: #ffc600;
+    box-shadow: 0 0 10px #ffc600;
+    opacity: 1.0;
+}
+
+.btn:hover {
+    opacity: 1.0;
 }
 
 .container {
