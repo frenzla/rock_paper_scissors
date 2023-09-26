@@ -1,8 +1,9 @@
 .buttons {
     display: flex;
-    gap: 40px;
-    width: 200px;
+    justify-content: space-between;
+    width: 300px;
     margin: 0 auto;
+    border: 1px yellow solid;
 }
 
 .container {
@@ -11,6 +12,7 @@
     flex-wrap: wrap;
     margin: 40px auto;
     justify-content: space-around;
+    border: 1px blue solid;
 }
 
 .textContainer {
@@ -18,5 +20,15 @@
 
 #score {
     margin: 40px auto;
+    text-align: center;
+    border: 1px green solid;
+}
+
+.finalScore {
+    border: 1px red solid;
+    text-align: center;
+}
+
+.text {
     text-align: center;
 }

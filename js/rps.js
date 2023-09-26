@@ -22,8 +22,6 @@ function getComputerChoice(numberForChoice) {
     }
 }
 
-alert("Let's play! The first to get to 5 wins!");
-
 let playerScore = 0;
 let computerScore = 0;
 let highestScore = 0;
@@ -107,7 +105,7 @@ function playRound(playerSelection,computerSelection) {
     if (playerSelection === computerSelection) {
         const contentResult = document.createElement('div');
         contentResult.classList.add('content');
-        contentResult.textContent = "Ooops, it's a tie... Try again! (This round doesn't count)";
+        contentResult.textContent = "It's a tie (this round doesn't count)";
         const containerResult = document.querySelector('#containerResult');
         containerResult.appendChild(contentResult);
         }
@@ -164,8 +162,19 @@ function getHighestScore() {
 
 function giveFinalResult() {
     if (computerScore === 5) {
-        alert("Ouch! You've been beaten!")
+        const computerWon = document.createElement('div');
+        computerWon.classList.add('finalScore');
+        computerWon.textContent = "Ouch! You've been beaten!";
+        const containerFinalScore = document.body;
+        containerFinalScore.appendChild(computerWon);
     } else {
-        alert("Well done! You won!")
+        const computerWon = document.createElement('div');
+        computerWon.classList.add('finalScore');
+        computerWon.textContent = "Well done! You won!";
+        const containerFinalScore = document.body;
+        containerFinalScore.appendChild(computerWon);
     }
+    const buttonsToRemove = document.querySelector('.buttons');
+    const bodyParent = document.body;
+    bodyParent.removeChild(buttonsToRemove);
 }
