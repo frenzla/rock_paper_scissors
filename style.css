@@ -1,0 +1,19 @@
+.buttons {
+    display: flex;
+    gap: 40px;
+    width: 200px;
+    margin: 0 auto;
+}
+
+.container {
+    display: flex;
+    width: 700px;
+    flex-wrap: wrap;
+    margin: 40px auto;
+    justify-content: space-around;
+    border: 3px solid blue;
+}
+
+.textContainer {
+    border: 3px solid red;
+}
