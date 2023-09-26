@@ -164,13 +164,13 @@ function giveFinalResult() {
     if (computerScore === 5) {
         const computerWon = document.createElement('div');
         computerWon.classList.add('finalScore');
-        computerWon.textContent = "Ouch! You've been beaten!";
+        computerWon.textContent = "Ouch! You've been beaten! 😭";
         const containerFinalScore = document.body;
         containerFinalScore.appendChild(computerWon);
     } else {
         const computerWon = document.createElement('div');
         computerWon.classList.add('finalScore');
-        computerWon.textContent = "Well done! You won!";
+        computerWon.textContent = "Well done! You won! 👏";
         const containerFinalScore = document.body;
         containerFinalScore.appendChild(computerWon);
     }
